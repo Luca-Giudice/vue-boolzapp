@@ -15,10 +15,11 @@
 }
 
 .chat {
-    height: 300px;
+    height: 600px;
     background-color: white;
    
 }
+
 
 .messaging {
     height: 300px;
@@ -29,7 +30,32 @@
 
 .chat section{
     height: 10vh;
-    background-color: aqua;
-    border: 1px dashed black;
 }
+
+#contact{
+    overflow-y: scroll;
+    height: 80vh;
+    
+}
+
+
+.nmessage{
+    background-color: rgb(142,218,252);
+}
+
+.messaging header{
+    background-color: rgb(234,234,234);
+    height: 30px;
+}
+
+img{
+    height: 80%;
+    border-radius: 50px;
+}
+.bi{
+    font-size: 25px;
+    color: rgb(177,177,177);
+}
+
+
 
