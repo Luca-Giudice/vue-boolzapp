@@ -9,3 +9,27 @@
     height: 100vh;
     background-image: linear-gradient(rgb(0,150,136) 25%, rgb(219,219,211) 25%, rgb(219,219,211) 25%);
 }
+
+.container{
+    
+}
+
+.chat {
+    height: 300px;
+    background-color: white;
+   
+}
+
+.messaging {
+    height: 300px;
+    background-image: url(img/mine.jpg);
+    
+}
+
+
+.chat section{
+    height: 10vh;
+    background-color: aqua;
+    border: 1px dashed black;
+}
+
