@@ -1,61 +1,185 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.bg {
-    width: 100vw;
+/* # CUSTOM PROPERTIES */
+:root {
+    --green: #009688;
+    --bg-gray: #dcdbd3;
+    --bg-chat: #ece5dd;
+    --light-blue: #8edafc;
+    --sent-color: #d5f9ba;
+    --gray: #aaa;
+    --dark-gray: #ccc;
+    --light-gray: #eaeaea;
+    --darker-gray: #222e35;
+  }
+  
+  /* # MAIN SECTIONS */
+  
+  body {
     height: 100vh;
-    background-image: linear-gradient(rgb(0,150,136) 25%, rgb(219,219,211) 25%, rgb(219,219,211) 25%);
-}
-
-.container{
-    
-}
-
-.chat {
-    height: 600px;
-    background-color: white;
-   
-}
-
-
-.messaging {
-    height: 300px;
-    background-image: url(img/mine.jpg);
-    
-}
-
-
-.chat section{
-    height: 10vh;
-}
-
-#contact{
-    overflow-y: scroll;
-    height: 80vh;
-    
-}
-
-
-.nmessage{
-    background-color: rgb(142,218,252);
-}
-
-.messaging header{
-    background-color: rgb(234,234,234);
-    height: 30px;
-}
-
-img{
-    height: 80%;
-    border-radius: 50px;
-}
-.bi{
-    font-size: 25px;
-    color: rgb(177,177,177);
-}
-
-
-
+    background-image: linear-gradient(var(--green) 15%, var(--bg-gray) 15%);
+  }
+  
+  #root .container {
+    height: 90%;
+  }
+  
+  #chat {
+    background-color: var(--bg-chat);
+  }
+  
+  /* # Background utils  */
+  .bg-light-gray {
+    background-color: var(--light-gray);
+  }
+  
+  .bg-light-blue {
+    background-color: var(--light-blue);
+  }
+  
+  .bg-chat-image {
+    background-image: url('../img/mine.jpg');
+  }
+  
+  .bg-chat-color {
+    background-color: var(--bg-chat);
+  }
+  
+  /* # CHAT SECTION */
+  
+  #chat header,
+  #chat footer,
+  #user-section {
+    height: 70px;
+  }
+  
+  /* # NOTIFICATIONS */
+  
+  #notifications {
+    height: 80px;
+  }
+  
+  #notifications .fa-bell-slash {
+    color: #8edafc;
+  }
+  
+  /* # MEDIA */
+  
+  .media {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .media figure {
+    height: 70px;
+    padding: 0.5rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .media img {
+    height: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+  }
+  
+  .media .media-text {
+    margin-left: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  .media .media-icon {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+  }
+  
+  li.media:hover {
+    cursor: pointer;
+    background-color: var(--light-gray);
+  }
+  
+  /* # SEARCH SECTION */
+  
+  #search-contacts {
+    height: 50px;
+    position: relative;
+  }
+  
+  #search-contacts .fa-search {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+  }
+  
+  #search-contacts input {
+    border: 0;
+    height: 100%;
+    padding-left: 50px;
+  }
+  
+  /* # MESSAGES */
+  
+  .message-container {
+    display: flex;
+  }
+  .message-container.sent {
+    justify-content: flex-end;
+  }
+  
+  .message-container.received {
+    justify-content: flex-start;
+  }
+  
+  .message-container.sent .message {
+    background-color: var(--sent-color);
+  }
+  
+  .message-container.received .message {
+    background-color: #fff;
+  }
+  
+  .message-container .message p {
+    margin-bottom: 0;
+  }
+  .message-container .message time {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: var(--gray);
+  }
+  
+  .message-container .message {
+    position: relative;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.2));
+  }
+  
+  .message-container.received .message:before {
+    content: '';
+    height: 0;
+    width: 0;
+    border-width: 10px 15px 0 0;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+  }
+  .message-container.sent .message:after {
+    content: '';
+    height: 0;
+    width: 0;
+    border-width: 10px 0 0 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--sent-color);
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+  }
+  

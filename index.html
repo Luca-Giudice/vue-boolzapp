@@ -1,82 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- icons -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css' integrity='sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg==' crossorigin='anonymous'/>
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    <title>Boolzapp</title>
-</head>
-<body class="bg">
-    <div class="">
-        <div class="container mt-5">
-            <div class="row d-flex">
-                <div class="col-4 chat p-0 ">
-                    <section class=" d-flex user justify-content-between">
-                       <div class="d-flex">
-                        <img src="img/avatar_1.jpg" alt="">
-                        <h6 class="mt-3">Nome utente</h6>
-                       </div>
-                       <div class="d-flex align-items-center gx-2">
-                        <i class="bi bi-arrow-clockwise"></i>
-                        <i class="bi bi-chat-left-fill"></i>
-                        <i class="bi bi-three-dots-vertical"></i>
-
-                       </div>
-                    </section>
-                    <section class="nmessage d-flex align-items-center">
-                        <i class="bi bi-bell-slash-fill"></i>
-                        <p>Ricevi Notifiche di nuovi messaggi <span>Attiva notifiche di nuovi messaggi</span></p>
-
-                    </section>
-                    <section>
-                        <input type="text">
-                    </section>
-                    <section id="contact">
-                        <section class="d-flex">
-
-                            <img src="img/avatar_2.jpg" alt="">
-                            <span class="mt-3">Luca</span>
-                        </section>
-                        <section class="d-flex">
-
-                            <img src="img/avatar_3.jpg" alt="">
-                            <span class="mt-3">Federico</span>
-                        </section>
-                        <section class="d-flex">
-
-                            <img src="img/avatar_4.jpg" alt="">
-                            <span class="mt-3">Paolo</span>
-                        </section>
-                        <section class="d-flex">
-
-                            <img src="img/avatar_5.jpg" alt="">
-                            <span class="mt-3">Josè</span>
-                        </section>
-                    </section>
-                </div>
-                <div class="col-8 messaging p-0 d-flex-column justify-content-between ">
-                    <header>
-
-                    </header>
-                    <section >
-                        <input type="text">
-                    </section>
-                    
-                </div>
-
-            </div>
-           
-
-        </div>
-
-    </div>
-
     
-</body>
-</html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      
+        <link rel="icon" href="favicon.ico" type="image/ico" />
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      
+        <!-- Font Awesome 6 -->
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'
+          integrity='sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=='
+          crossorigin='anonymous' />
+      
+        <!-- Style -->
+        <link rel="stylesheet" href="style.css" />
+      
+        <!-- VueJS -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      
+        <!-- JavaScript -->
+        <script defer src="js/script.js"></script>
+      </head>
+      
+      <body>
+        <div id="root" class="h-100 d-flex align-items-center justify-content-center">
+          <main div class="container shadow bg-white">
+            <div class="row h-100">
+              <!-- SIDEBAR SECTION -->
+              <section id="sidebar" class="col-6 col-lg-4 p-0 h-100 bg-light-gray d-flex flex-column">
+      
+                <!-- User section -->
+                <div id="user-section" class="flex-shrink-0 d-flex justify-content-between">
+                  <div class="media">
+                    <figure>
+                      <img src="img/avatar_io.jpg" alt="Silvia Rivella" />
+                    </figure>
+                    <div class="h6 media-text">Silvia Rivella</div>
+                  </div>
+                  <div class="w-25 text-muted d-flex justify-content-around align-items-center">
+                    <i class="fa-solid fa-circle-notch" role="button"></i>
+                    <i class="fa-solid fa-comment-alt" role="button"></i>
+                    <i class="fa-solid fa-ellipsis-v" role="button"></i>
+                  </div>
+                </div>
+      
+                <!-- Notifications -->
+                <div id="notifications" class="bg-light-blue flex-shrink-0">
+                  <div class="media">
+                    <div class="media-icon">
+                      <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="media-text">
+                      <div>Ricevi notifiche di nuovi messaggi</div>
+                      <div class="fs-6 text-decoration-underline" role="button">
+                        <small>Attiva le notifiche desktop</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+                <!-- Search -->
+                <div id="search-contacts" class="p-2 flex-shrink-0">
+                  <i class="fa-solid fa-search text-muted"></i>
+                  <input type="text" class="w-100" placeholder="Cerca contatto" />
+                </div>
+      
+                <!-- Contacts List -->
+                <div id="contacts-list" class="flex-grow-1 bg-white overflow-auto">
+                  <ul class="m-0 p-0">
+                    <li class="media">
+                      <figure>
+                        <img src="img/avatar_2.jpg" alt="Marco Lancellotti" />
+                      </figure>
+                      <div class="h6 media-text">
+                        <div>Marco Lancellotti</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+      
+              </section>
+              <!-- CHAT SECTION -->
+              <section id="chat" class="col-6 col-lg-8 p-0 h-100 bg-chat-color d-flex flex-column">
+      
+                <!-- Chat Header -->
+                <header class="bg-light-gray flex-shrink-0 d-flex justify-content-between">
+                  <div class="media">
+                    <figure>
+                      <img src="img/avatar_2.jpg" alt="Marco Lanci" />
+                    </figure>
+                    <div class="h6 media-text">
+                      <div>Marco Lanci</div>
+                      <div class="mb-0 fw-light">
+                        <small>Ultimo accesso: </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="me-3 d-flex text-muted align-items-center justify-content-around">
+                    <i class="fa-solid fa-search ms-3"></i>
+                    <i class="fa-solid fa-paperclip ms-3"></i>
+                    <i class="fa-solid fa-ellipsis-v ms-3"></i>
+                  </div>
+                </header>
+      
+                <!-- Chat Messages -->
+                <div class="flex-grow-1 overflow-auto bg-chat-image">
+                  <ul class="px-3">
+                    <li class="message-container p-3 sent">
+                      <div class="message p-2 rounded-3">
+                        <p>Hai portato a spasso il cane?</p>
+                        <time datetime="2021-08-03T09:53">31/01/2022 - 12:13</time>
+                      </div>
+                    </li>
+                    <li class="message-container p-3 received">
+                      <div class="message p-2 rounded-3">
+                        <p>Si!</p>
+                        <time datetime="2021-08-03T09:53">31/01/2022 - 12:14</time>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+      
+                <!-- Chat Footer -->
+                <footer class="flex-shrink-0 container-fluid">
+                  <div class="row h-100 align-items-center">
+                    <div class="col-1 d-flex justify-content-center">
+                      <i class="fa-regular fa-smile fa-2x text-muted" role="button"></i>
+                    </div>
+                    <div class="col-10">
+                      <input type="text" class="form-control" placeholder="Scrivi un messaggio" />
+                    </div>
+                    <div class="col-1 d-flex justify-content-center">
+                      <i class="fa-solid fa-microphone fa-2x text-muted" role="button"></i>
+                    </div>
+                  </div>
+                </footer>
+      
+              </section>
+            </div>
+          </main>
+        </div>
+      
+      </body>
+      
+      </html>
