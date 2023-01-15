@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Document</title>''''
       
         <link rel="icon" href="favicon.ico" type="image/ico" />
         <!-- Bootstrap -->
@@ -22,9 +22,13 @@
       
         <!-- VueJS -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+        <!-- data -->
+        <script src="data_milestone1.js"></script>
+        <script src="data_milestone2.js"></script>
       
         <!-- JavaScript -->
-        <script defer src="js/script.js"></script>
+        <script defer src="script.js"></script>
       </head>
       
       <body>
@@ -38,9 +42,9 @@
                 <div id="user-section" class="flex-shrink-0 d-flex justify-content-between">
                   <div class="media">
                     <figure>
-                      <img src="img/avatar_io.jpg" alt="Silvia Rivella" />
+                      <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name" />
                     </figure>
-                    <div class="h6 media-text">Silvia Rivella</div>
+                    <div class="h6 media-text">{{user.name}}</div>
                   </div>
                   <div class="w-25 text-muted d-flex justify-content-around align-items-center">
                     <i class="fa-solid fa-circle-notch" role="button"></i>
@@ -67,18 +71,18 @@
                 <!-- Search -->
                 <div id="search-contacts" class="p-2 flex-shrink-0">
                   <i class="fa-solid fa-search text-muted"></i>
-                  <input type="text" class="w-100" placeholder="Cerca contatto" />
+                  <input type="text" class="w-100" placeholder="Cerca contatto" v-model="searchContact"/>
                 </div>
       
                 <!-- Contacts List -->
                 <div id="contacts-list" class="flex-grow-1 bg-white overflow-auto">
                   <ul class="m-0 p-0">
-                    <li class="media">
+                    <li v-for="(contact, index) in filteredContacts" class="media" @click="setCurrentIndex(index)">
                       <figure>
-                        <img src="img/avatar_2.jpg" alt="Marco Lancellotti" />
+                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contacts.name" />
                       </figure>
                       <div class="h6 media-text">
-                        <div>Marco Lancellotti</div>
+                        {{contact.name}}
                       </div>
                     </li>
                   </ul>
@@ -92,10 +96,10 @@
                 <header class="bg-light-gray flex-shrink-0 d-flex justify-content-between">
                   <div class="media">
                     <figure>
-                      <img src="img/avatar_2.jpg" alt="Marco Lanci" />
+                      <img :src="buildAvatarUrl(contacts[currentIndex].avatar)" :alt="contacts[currentIndex].name" />
                     </figure>
                     <div class="h6 media-text">
-                      <div>Marco Lanci</div>
+                      <div>{{contacts[currentIndex].name}}</div>
                       <div class="mb-0 fw-light">
                         <small>Ultimo accesso: </small>
                       </div>
