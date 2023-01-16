@@ -15,7 +15,7 @@ const app = Vue.createApp({
             },
             contacts: [
                 {
-                  name: 'Simone',
+                  id:1, name: 'Simone',
                   avatar: '_1',
                   visible: true,
             messages: [{
@@ -36,7 +36,7 @@ const app = Vue.createApp({
             ],
                 },
                 {
-                  name: 'Fabio',
+                  id:2, name: 'Fabio',
                   avatar: '_2',
                   visible: true,
                   messages: [{
@@ -57,7 +57,7 @@ const app = Vue.createApp({
                   ],
                 },
                 {
-                  name: 'Giovanni',
+                  id:3, name: 'Giovanni',
                   avatar: '_3',
                   visible: true,
                   messages: [{
@@ -78,7 +78,7 @@ const app = Vue.createApp({
                 ],
                 },
                 {
-                  name: 'Enrico',
+                  id:4, name: 'Enrico',
                   avatar: '_4',
                   visible: true,
                  messages: [{
@@ -102,6 +102,10 @@ const app = Vue.createApp({
       },
       currentChat() {
         return this.currentContact.messages;
+      },
+      filteredContacts() {
+        const searcWord = this.searchContact.tolowerCase();
+        return this.contacts.filter(contact => contact.name.toloweCase().includes(searcWord));
       },
     },
     methods: {

@@ -74,7 +74,7 @@
                 <!-- Search -->
                 <div id="search-contacts" class="p-2 flex-shrink-0">
                   <i class="fa-solid fa-search text-muted"></i>
-                  <input type="text" class="w-100" placeholder="Cerca contatto"/>
+                  <input type="text" class="w-100" placeholder="Cerca contatto" v-model="searchContact" @keyup.enter="searchContact"/>
                 </div>
       
                 <!-- Contacts List -->
