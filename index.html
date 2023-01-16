@@ -115,18 +115,13 @@
                 <!-- Chat Messages -->
                 <div class="flex-grow-1 overflow-auto bg-chat-image">
                   <ul class="px-3">
-                    <li v-for="message in currentContact.messages" class="message-container p-3 sent">
+                    <li v-for="message in currentChat" class="message-container p-3" :class="message.status">
                       <div class="message p-2 rounded-3">
-                        <p>Hai portato a spasso il cane?</p>
-                        <time datetime="2021-08-03T09:53">31/01/2022 - 12:13</time>
+                        <p>{{message.text}}</p>
+                        <time datetime="2021-08-03T09:53">{{message.date}}</time>
                       </div>
                     </li>
-                    <li class="message-container p-3 received">
-                      <div class="message p-2 rounded-3">
-                        <p>Si!</p>
-                        <time datetime="2021-08-03T09:53">31/01/2022 - 12:14</time>
-                      </div>
-                    </li>
+                    
                   </ul> 
                 </div>
       

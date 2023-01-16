@@ -97,8 +97,8 @@ const app = Vue.createApp({
       currentContact (){
         return this.contacts[this.currentIndex];
       },
-      currentChat() {d
-        return this.currentContacts.messages;
+      currentChat() {
+        return this.currentContact.messages;
       },
     },
     methods: {
@@ -110,7 +110,7 @@ const app = Vue.createApp({
         },
 
         currentMoment(){
-          return 'test';
+          return 
         },
        sendMessage(){
           if(!this.newMessage) return;
