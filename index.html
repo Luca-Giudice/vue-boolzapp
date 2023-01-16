@@ -42,7 +42,7 @@
                 <div id="user-section" class="flex-shrink-0 d-flex justify-content-between">
                   <div class="media">
                     <figure>
-                      <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name" />
+                      <img :src="buildAvatarUrl(user.avatar)" :alt="user.name" />
                     </figure>
                     <div class="h6 media-text">{{user.name}}</div>
                   </div>
@@ -71,15 +71,15 @@
                 <!-- Search -->
                 <div id="search-contacts" class="p-2 flex-shrink-0">
                   <i class="fa-solid fa-search text-muted"></i>
-                  <input type="text" class="w-100" placeholder="Cerca contatto" v-model="searchContact"/>
+                  <input type="text" class="w-100" placeholder="Cerca contatto"/>
                 </div>
       
                 <!-- Contacts List -->
                 <div id="contacts-list" class="flex-grow-1 bg-white overflow-auto">
                   <ul class="m-0 p-0">
-                    <li v-for="(contact, index) in filteredContacts" class="media" @click="setCurrentIndex(index)">
+                    <li v-for="(contact, index) in contacts" class="media" @click="setCurrentIndex(index)">
                       <figure>
-                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contacts.name" />
+                        <img :src="buildAvatarUrl(contact.avatar)" :alt="contact.name" />
                       </figure>
                       <div class="h6 media-text">
                         {{contact.name}}
@@ -96,10 +96,10 @@
                 <header class="bg-light-gray flex-shrink-0 d-flex justify-content-between">
                   <div class="media">
                     <figure>
-                      <img :src="buildAvatarUrl(contacts[currentIndex].avatar)" :alt="contacts[currentIndex].name" />
+                      <img :src="buildAvatarUrl(currentContact.avatar)" :alt="currentContact.name" />
                     </figure>
                     <div class="h6 media-text">
-                      <div>{{contacts[currentIndex].name}}</div>
+                      <div>{{currentContact.name}}</div>
                       <div class="mb-0 fw-light">
                         <small>Ultimo accesso: </small>
                       </div>
@@ -115,7 +115,7 @@
                 <!-- Chat Messages -->
                 <div class="flex-grow-1 overflow-auto bg-chat-image">
                   <ul class="px-3">
-                    <li class="message-container p-3 sent">
+                    <li v-for="message in currentContact.messages" class="message-container p-3 sent">
                       <div class="message p-2 rounded-3">
                         <p>Hai portato a spasso il cane?</p>
                         <time datetime="2021-08-03T09:53">31/01/2022 - 12:13</time>
@@ -137,7 +137,7 @@
                       <i class="fa-regular fa-smile fa-2x text-muted" role="button"></i>
                     </div>
                     <div class="col-10">
-                      <input type="text" class="form-control" placeholder="Scrivi un messaggio" />
+                      <input type="text" class="form-control" placeholder="Scrivi un messaggio" v-model.trim="newMessage" @keyup.enter="sendMessage"/>
                     </div>
                     <div class="col-1 d-flex justify-content-center">
                       <i class="fa-solid fa-microphone fa-2x text-muted" role="button"></i>

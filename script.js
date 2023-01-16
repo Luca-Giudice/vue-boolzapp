@@ -4,6 +4,7 @@ const app = Vue.createApp({
     data() {
         return {
             currentIndex: 0,
+            newMessage:"",
             searchContact:'',
             user: {
                 name: 'Luca Giudice',
@@ -77,9 +78,9 @@ const app = Vue.createApp({
                   name: 'Enrico',
                   avatar: '_4',
                   visible: true,
-    messages: [{
-      date: '10/01/2020 15:30:55',
-      text: 'Lo sai che ha aperto una nuova pizzeria?',
+                 messages: [{
+                 date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
       status: 'sent'
     },
     {
@@ -93,17 +94,44 @@ const app = Vue.createApp({
         }
     },
     computed:{
-    filteredContacts() {
-        return this.contacts.filter(contact => contact. includes(this.searchContact));
-    },
-
+      currentContact (){
+        return this.contacts[this.currentIndex];
+      },
+      currentChat() {d
+        return this.currentContacts.messages;
+      },
     },
     methods: {
         buildAvatarUrl(avatar) {
-            return `img/avatar${avatar}.jpg`
+            return `img/avatar${avatar}.jpg`;
         },
         setCurrentIndex(index){
             this.currentIndex = index;
+        },
+
+        currentMoment(){
+          return 'test';
+        },
+       sendMessage(){
+          if(!this.newMessage) return;
+
+          const newMessage = {
+            status: 'sent',
+            date: this.currentMoment(),
+            text: this.newMessage
+          };
+
+          this.contacts[this.currentIndex].messages.push(newMessage);
+          this.newMessage ='';
+          setTimeout(() => {
+            const newMessage = {
+              status: 'recived',
+              date: this.currentMoment(),
+              text: 'OK'
+            };
+
+            this.currentChat.push(answer);
+          }, 1000)
         }
     }
     
