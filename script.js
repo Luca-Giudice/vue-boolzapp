@@ -104,8 +104,8 @@ const app = Vue.createApp({
         return this.currentContact.messages;
       },
       filteredContacts() {
-        const searcWord = this.searchContact.tolowerCase();
-        return this.contacts.filter(contact => contact.name.toloweCase().includes(searcWord));
+        const searcWord = this.searchContact.toLowerCase();
+        return this.contacts.filter((contact) => contact.name.toLowerCase().includes(searcWord));
       },
     },
     methods: {

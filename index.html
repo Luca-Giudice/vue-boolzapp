@@ -72,23 +72,26 @@
                 </div>
       
                 <!-- Search -->
-                <div id="search-contacts" class="p-2 flex-shrink-0">
-                  <i class="fa-solid fa-search text-muted"></i>
-                  <input type="text" class="w-100" placeholder="Cerca contatto" v-model="searchContact" @keyup.enter="searchContact"/>
-                </div>
-      
-                <!-- Contacts List -->
-                <div id="contacts-list" class="flex-grow-1 bg-white overflow-auto">
-                  <ul class="m-0 p-0">
-                    <li v-for="(contact, index) in contacts" class="media" @click="setCurrentIndex(index)">
-                      <figure>
-                        <img :src="buildAvatarUrl(contact.avatar)" :alt="contact.name" />
-                      </figure>
-                      <div class="h6 media-text">
-                        {{contact.name}}
-                      </div>
-                    </li>
-                  </ul>
+                <div v-if>
+
+                  <div id="search-contacts" class="p-2 flex-shrink-0">
+                    <i class="fa-solid fa-search text-muted"></i>
+                    <input type="text" class="w-100" placeholder="Cerca contatto" v-model="searchContact" @keyup.enter="searchContact"/>
+                  </div>
+                  
+                  <!-- Contacts List -->
+                  <div id="contacts-list" class="flex-grow-1 bg-white overflow-auto">
+                    <ul class="m-0 p-0">
+                      <li v-for="(contact, index) in filteredContacts" class="media" @click="setCurrentIndex(index)">
+                        <figure>
+                          <img :src="buildAvatarUrl(contact.avatar)" :alt="contact.name" />
+                        </figure>
+                        <div class="h6 media-text">
+                          {{contact.name}}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
       
               </section>
