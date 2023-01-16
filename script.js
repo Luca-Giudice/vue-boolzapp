@@ -1,11 +1,14 @@
 console.log('Vue OK', Vue);
 
+const dateTime = luxon.DateTime;
+
 const app = Vue.createApp({
     data() {
         return {
             currentIndex: 0,
             newMessage:"",
             searchContact:'',
+
             user: {
                 name: 'Luca Giudice',
                 avatar: '_io'
@@ -104,6 +107,9 @@ const app = Vue.createApp({
     methods: {
         buildAvatarUrl(avatar) {
             return `img/avatar${avatar}.jpg`;
+        },
+        getCurrentMoment(){
+          return dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
         },
         setCurrentIndex(index){
             this.currentIndex = index;
